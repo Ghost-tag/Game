@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://crobid5l0a083"]
+
+[ext_resource type="Texture2D" uid="uid://c5yhc6v0ltxj6" path="res://assets/tree.png" id="1_gldc4"]
+[ext_resource type="PackedScene" uid="uid://7qsmmchmdrtm" path="res://scenes/player_human.tscn" id="2_paxxb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xfga"]
+size = Vector2(3.7000005, 6.62)
+
+[sub_resource type="ImageTexture" id="ImageTexture_paxxb"]
+
+[node name="Node2D" type="Node2D"]
+rotation = -0.0026158523
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(836.2841, -489.8141)
+collision_mask = 3
+
+[node name="Tree" type="Sprite2D" parent="Area2D3"]
+texture = ExtResource("1_gldc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(0, 85)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_4xfga")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-1023.71924, -108.67825)
+collision_mask = 3
+
+[node name="Tree" type="Sprite2D" parent="Area2D2"]
+texture = ExtResource("1_gldc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 85)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_4xfga")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_paxxb")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-114.23951, 473.70276)
+scale = Vector2(1090.9576, 1036.3429)
+texture = SubResource("ImageTexture_paxxb")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -1
+position = Vector2(-1691.7144, -111.42565)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-2088.7646, -2386.4722, -2119.8125, 2601.4639, 6208.23, 2596.2488, 6194.2544, -2382.8052)
