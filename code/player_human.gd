@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-
+var items = []
+var itemNames = ["holy water", "can"]
 var speed = 300.0
 var top_speed = 400
 var xDirection = 0
@@ -8,7 +9,10 @@ var yDirection = 0
 var speedForce = 30
 var stopForce = 30
 
-const JUMP_VELOCITY = -400.0
+func useItem():
+	if items.size() > 0:
+		print("used " + itemNames[items[items.size() - 1]])
+		items.pop_back()
 
 func direction():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -35,6 +39,10 @@ func direction():
 	elif input_direction.y == 0 && speed <= 0:
 		velocity.x = 0
 
+func addItem(id):
+	items.push_back(id)
+
 func _physics_process(_delta: float) -> void:
 	direction()
 	move_and_slide()
+	useItem()
