@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtx4hnqobpyas"]
+
+[ext_resource type="Texture2D" uid="uid://b1ymr43nlsw3v" path="res://assets/ghost.webp" id="1_hmsbg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmsbg"]
+size = Vector2(321, 467)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="Ghost" type="Sprite2D" parent="."]
+texture = ExtResource("1_hmsbg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-15.5, -5.5)
+shape = SubResource("RectangleShape2D_hmsbg")

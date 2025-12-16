@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://7qsmmchmdrtm"]
+
+[ext_resource type="Texture2D" uid="uid://csg778fofqjjc" path="res://assets/person.png" id="1_1ecno"]
+[ext_resource type="Script" uid="uid://cg26bu2v8v5ce" path="res://code/player_human.gd" id="1_hs1ra"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ecno"]
+size = Vector2(130, 298)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(598, 305)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_hs1ra")
+
+[node name="Person" type="Sprite2D" parent="."]
+texture = ExtResource("1_1ecno")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 1)
+shape = SubResource("RectangleShape2D_1ecno")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_horizontal_offset = 0.5
+drag_vertical_offset = 0.5
