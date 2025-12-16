@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://crobid5l0a083"]
+[gd_scene load_steps=7 format=3 uid="uid://crobid5l0a083"]
 
+[ext_resource type="Script" uid="uid://ccd5kvbutg1uf" path="res://code/map.gd" id="1_0cso3"]
 [ext_resource type="Texture2D" uid="uid://c5yhc6v0ltxj6" path="res://assets/tree.png" id="1_gldc4"]
 [ext_resource type="PackedScene" uid="uid://7qsmmchmdrtm" path="res://scenes/player_human.tscn" id="2_paxxb"]
+[ext_resource type="PackedScene" uid="uid://dtx4hnqobpyas" path="res://scenes/player_ghost.tscn" id="3_gldc4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4xfga"]
 size = Vector2(3.7000005, 6.62)
@@ -10,10 +12,11 @@ size = Vector2(3.7000005, 6.62)
 
 [node name="Node2D" type="Node2D"]
 rotation = -0.0026158523
+script = ExtResource("1_0cso3")
 
 [node name="Area2D3" type="Area2D" parent="."]
 position = Vector2(836.2841, -489.8141)
-collision_mask = 3
+collision_mask = 2
 
 [node name="Tree" type="Sprite2D" parent="Area2D3"]
 texture = ExtResource("1_gldc4")
@@ -25,7 +28,7 @@ shape = SubResource("RectangleShape2D_4xfga")
 
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(-1023.71924, -108.67825)
-collision_mask = 3
+collision_mask = 2
 
 [node name="Tree" type="Sprite2D" parent="Area2D2"]
 texture = ExtResource("1_gldc4")
@@ -48,3 +51,8 @@ z_index = -1
 position = Vector2(-1691.7144, -111.42565)
 color = Color(0, 1, 0, 1)
 polygon = PackedVector2Array(-2088.7646, -2386.4722, -2119.8125, 2601.4639, 6208.23, 2596.2488, 6194.2544, -2382.8052)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("3_gldc4")]
+position = Vector2(313.26648, 280.82043)
+
+[editable path="CharacterBody2D2"]
