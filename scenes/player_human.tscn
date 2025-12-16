@@ -6,10 +6,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ecno"]
 size = Vector2(130, 298)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 position = Vector2(598, 305)
 collision_layer = 2
-collision_mask = 3
+collision_mask = 5
 script = ExtResource("1_hs1ra")
 
 [node name="Person" type="Sprite2D" parent="."]

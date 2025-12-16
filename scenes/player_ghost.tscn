@@ -1,15 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://dtx4hnqobpyas"]
+[gd_scene load_steps=4 format=3 uid="uid://dtx4hnqobpyas"]
 
+[ext_resource type="Script" uid="uid://cnk2lu34ovtgb" path="res://code/player_ghost.gd" id="1_32khj"]
 [ext_resource type="Texture2D" uid="uid://b1ymr43nlsw3v" path="res://assets/ghost.webp" id="1_hmsbg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hmsbg"]
 size = Vector2(321, 467)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_32khj")
 
 [node name="Ghost" type="Sprite2D" parent="."]
 texture = ExtResource("1_hmsbg")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-15.5, -5.5)
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_hmsbg")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+enabled = false
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
