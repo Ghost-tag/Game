@@ -49,4 +49,4 @@ func _physics_process(_delta: float) -> void:
 	if inControl == true:
 		direction()
 		move_and_slide()
-    useItem()
+		useItem()
