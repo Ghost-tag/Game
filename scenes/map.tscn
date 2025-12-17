@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://crobid5l0a083"]
+
+[ext_resource type="Script" path="res://code/map.gd" id="1_0cso3"]
+[ext_resource type="Texture2D" uid="uid://c5yhc6v0ltxj6" path="res://assets/tree.png" id="1_gldc4"]
+[ext_resource type="PackedScene" uid="uid://b4npupqlryp2t" path="res://scenes/player_human.tscn" id="2_paxxb"]
+[ext_resource type="PackedScene" uid="uid://sl7yd7ouxwov" path="res://scenes/holy_water.tscn" id="3_g8mup"]
+[ext_resource type="PackedScene" uid="uid://dtx4hnqobpyas" path="res://scenes/player_ghost.tscn" id="3_gldc4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xfga"]
+size = Vector2(3.7, 6.62)
+
+[sub_resource type="ImageTexture" id="ImageTexture_paxxb"]
+
+[node name="Node2D" type="Node2D"]
+rotation = -0.00261585
+script = ExtResource("1_0cso3")
+
+[node name="Area2D3" type="Area2D" parent="."]
+position = Vector2(836.284, -489.814)
+collision_mask = 2
+
+[node name="Tree" type="Sprite2D" parent="Area2D3"]
+texture = ExtResource("1_gldc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D3"]
+position = Vector2(0, 85)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_4xfga")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(-1023.72, -108.678)
+collision_mask = 2
+
+[node name="Tree" type="Sprite2D" parent="Area2D2"]
+texture = ExtResource("1_gldc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+position = Vector2(0, 85)
+scale = Vector2(100, 100)
+shape = SubResource("RectangleShape2D_4xfga")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("2_paxxb")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(-114.24, 473.703)
+scale = Vector2(1090.96, 1036.34)
+texture = SubResource("ImageTexture_paxxb")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -1
+position = Vector2(-1691.71, -111.426)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(-2088.76, -2386.47, -2119.81, 2601.46, 6208.23, 2596.25, 6194.25, -2382.81)
+
+[node name="Holy water" parent="." instance=ExtResource("3_g8mup")]
+position = Vector2(1162.28, -106.96)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("3_gldc4")]
+position = Vector2(313.266, 280.82)
+
+[editable path="CharacterBody2D2"]
